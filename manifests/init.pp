@@ -19,7 +19,7 @@ class domain (
 
   package { 'pbis-open':
       ensure  => present,
-      require => Class['rpm_repos'];
+      require => Class['localrepo'];
   }
 
   domain { $::domain:
