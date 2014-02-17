@@ -4,7 +4,7 @@ class domain (
     $join          = false,
     $requiredgroup = 'nibdom.com+domain^users',
     $loginshell    = '/bin/bash',
-    $samba-interop = false
+    $sambainterop = false
 ) {
   $grep_command = $::osfamily ? {
     /(?i:RedHat)/ => '/bin/grep',
@@ -33,7 +33,7 @@ class domain (
       require         => Package['pbis-open'];
   }
 
-  if $samba-interop {
+  if $sambainterop {
     exec { 'samba-interop-install':
       command =>'/opt/pbis/bin/samba-interop-install --install',
       unless  => "/usr/bin/net ads testjoin -k | ${grep_command} -ic OK",
