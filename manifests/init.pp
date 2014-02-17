@@ -2,7 +2,7 @@ class domain (
     $username      = undef,
     $password      = undef,
     $join          = false,
-    $requiredgroup = 'nibdom.com+domain^users',
+    $requiredgroup = "${::domain}+domain^users",
     $loginshell    = '/bin/bash',
     $sambainterop = false
 ) {
